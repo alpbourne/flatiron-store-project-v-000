@@ -12,10 +12,9 @@ class Cart < ActiveRecord::Base
   end
 
   def add_item(item_id)
-    if line = self.line_items.find(item_id)
-      qty = line.quantity +=1
-      self.line_items.update(item_id: item_id, quantity: qty)
-
+    if line = self.line_items.find_by(id: item_id)
+      line.quantity +=1
+      line
     else
       self.line_items.build(item_id: item_id)
     end

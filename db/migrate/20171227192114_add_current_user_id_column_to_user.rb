@@ -1,4 +1,4 @@
-class AddCurrentCartIdColumnToUsers < ActiveRecord::Migration
+class AddCurrentUserIdColumnToUser < ActiveRecord::Migration
   def change
     add_column :users, :current_cart_id, :integer
   end
