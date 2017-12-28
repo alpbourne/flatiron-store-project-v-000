@@ -16,7 +16,9 @@ class Cart < ActiveRecord::Base
       line.quantity +=1
       line
     else
-      self.line_items.build(item_id: item_id)
+      self.line_items.build(cart_id: self.id, item_id: item_id)
+      binding.pry
+      self.save
     end
   end
 end
