@@ -1,4 +1,5 @@
 class CartsController < ApplicationController
+  before_action :current_cart
 
   def show
     if !current_user
@@ -18,6 +19,13 @@ class CartsController < ApplicationController
 
     render cart_path
   end
+
+  private
+
+  def current_cart
+    @current_cart = current_user.current_cart
+  end
+
 
 
 
