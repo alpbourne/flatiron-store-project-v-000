@@ -2,13 +2,14 @@ class LineItemsController < ApplicationController
   # before_action :current_cart
 
   def create
-
     if current_user
       if @cart =  current_user.current_cart
-        @cart.add_item(params[:item_id])
+        line = @cart.add_item(params[:item_id])
+        @cart.save
       else
         @cart = Cart.create(user_id: current_user.id)
         @cart.add_item(params[:item_id])
+        @cart.save
         current_user.current_cart = @cart
         current_user.save
       end

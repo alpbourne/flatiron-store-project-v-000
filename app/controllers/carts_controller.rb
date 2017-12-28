@@ -15,13 +15,13 @@ class CartsController < ApplicationController
       unit.inventory = unit.inventory - line_item.quantity
       unit.save
     end
-    binding.pry
     Order.create(cart_id: current_user.current_cart_id, user_id: current_user.id, total: current_user.current_cart.total, status: 'submitted' )
     current_user.current_cart = nil
     current_user.save
     # current_user.current_cart.delete
     # why does it say missing template?
-    render cart_path(current_user.current_cart)
+  
+    redirect_to cart_path
   end
 
   private
