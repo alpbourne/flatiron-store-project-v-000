@@ -10,7 +10,8 @@
       <% end %> </p>
     <% end %>
 <% end %>
+<p>Order total: <strong><%= number_to_currency(@user.orders.last.total/100) %></strong> </p>
 
-<p>Order total: <strong><%= number_to_currency(@user.current_cart.total/100) %></strong> </p>
-
+<% if !@user.orders.last.status == "submitted" %>
 <%= button_to 'Checkout', checkout_path %>
+<% end %>

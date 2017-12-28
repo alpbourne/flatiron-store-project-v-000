@@ -20,7 +20,7 @@ class CartsController < ApplicationController
     current_user.save
     # current_user.current_cart.delete
     # why does it say missing template?
-  
+
     redirect_to cart_path
   end
 
