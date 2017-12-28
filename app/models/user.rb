@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   has_many :orders
   has_many :carts
-  belongs_to :current_cart, class_name: "Cart"
+  belongs_to :current_cart, class_name: "Cart", foreign_key: 'current_cart_id'
 
   #  def current_cart=(cart)
   #    if cart
