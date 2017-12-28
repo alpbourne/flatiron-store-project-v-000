@@ -6,9 +6,12 @@ class User < ActiveRecord::Base
   has_many :orders
   has_many :carts
 
-
    def current_cart=(cart)
-     self.current_cart_id = cart.id
+     if cart
+       self.current_cart_id = cart.id
+     else
+       self.current_cart_id = nil
+     end
      self.save
    end
 
