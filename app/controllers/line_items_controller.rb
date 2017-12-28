@@ -1,7 +1,6 @@
 class LineItemsController < ApplicationController
 
   def create
-    
     if current_cart
       @cart.add_item(params[:item_id])
     else
