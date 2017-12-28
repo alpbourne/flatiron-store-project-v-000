@@ -1,5 +1,5 @@
 <h1><%= @category.title %></h1>
-<% binding.pry %>
+
 <ul>
 <% @category.items.each do |item| %>
     <li><%= link_to item.title, item_path(item) %></li>

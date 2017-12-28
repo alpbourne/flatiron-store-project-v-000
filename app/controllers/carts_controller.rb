@@ -15,7 +15,7 @@ class CartsController < ApplicationController
       unit.save
     end
     current_user.current_cart.delete
-binding.pry
+
     render cart_path
   end
 
